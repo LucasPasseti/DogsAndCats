@@ -6,6 +6,7 @@ const helmet = require("express");
 const morgan = require("morgan");
 const userRoute = require("./routes/users.js"); 
 const authRoute = require("./routes/auth.js"); 
+const postRoute = require("./routes/posts.js"); 
 
 
 dotenv.config();
@@ -32,7 +33,7 @@ mongoose.connection.on("connected", () => {
 // middleware
 app.use(express.json());
 app.use(helmet());
-app.use(morgan("common"));
+app.use(morgan("comum"));
 
 app.get("/", (req, res) => {
     res.send("Bem vindo a pagina principal")
@@ -43,6 +44,7 @@ app.get("/users", (req, res) => {
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/posts", postRoute);
 
 
 app.listen(8800, () => {
