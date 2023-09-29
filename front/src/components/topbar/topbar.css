@@ -20,9 +20,6 @@
     cursor: pointer;
 }
 
-.topbarLogo{
-
-}
 
 .topbarCenter{
     flex: 5;
@@ -71,7 +68,7 @@
 
 .topbarIconItem{
     margin-right: 15px;
-    curso: pointer;
+    cursor: pointer;
     position: relative;
 }
 
@@ -91,9 +88,23 @@
 }
 
 .topbarImg{
-    width: 32px;
-    height: 32px;
+    width: 2.3rem;
+    height: 2.3rem;
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .searchbar{
+        width: 90%;
+        height: 30px;
+        background-color: white;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;  
+    }
+
+
 }

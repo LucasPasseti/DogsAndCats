@@ -17,7 +17,7 @@ export default function Topbar() {
       <div className="topbarRight">
         <div className="topbarLinks">
           <span className="topbarLink">Página inicial</span>
-          <span className="topbarLink">Publicações</span>
+          <span className="topbarLink public">Publicações</span>
         </div>
         <div className="topbarIcon">
           <div className="topbarIconItem">
