@@ -20,27 +20,27 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <Group className="sidebarIcon" />
-            <span className="sidebarListItemText">Groups</span>
+            <span className="sidebarListItemText">Grupos</span>
           </li>
           <li className="sidebarListItem">
             <Bookmark className="sidebarIcon" />
-            <span className="sidebarListItemText">Bookmarks</span>
+            <span className="sidebarListItemText">Favoritos</span>
           </li>
           <li className="sidebarListItem">
             <HelpOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Questions</span>
+            <span className="sidebarListItemText">Questões</span>
           </li>
           <li className="sidebarListItem">
             <WorkOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Jobs</span>
+            <span className="sidebarListItemText">Trabalhos Pet</span>
           </li>
           <li className="sidebarListItem">
             <Event className="sidebarIcon" />
-            <span className="sidebarListItemText">Events</span>
+            <span className="sidebarListItemText">Eventos</span>
           </li>
           <li className="sidebarListItem">
             <School className="sidebarIcon" />
-            <span className="sidebarListItemText">Courses</span>
+            <span className="sidebarListItemText">Cursos Pet</span>
           </li>
         </ul>
         <button className="sidebarButton">Mostre Mais</button>
