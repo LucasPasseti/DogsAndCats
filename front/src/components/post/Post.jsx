@@ -1,5 +1,5 @@
 import "./post.css"
-import {More, MoreVert} from "@material-ui/icons"
+import {MoreVert} from "@material-ui/icons"
 
 export default function Post() {
   return (
@@ -16,7 +16,7 @@ export default function Post() {
               </div>
             </div>
             <div className="postCenter">
-              <span className="postText">Olá amiguinhos dogs! hoje eu visitei este lindo campo</span>
+              <span className="postText">Boa tarde Dogs! hoje eu visitei este lindo campo no Bosque</span>
               <img className="postImg" src="/assets/post/1.jpg" alt="" />
             </div>
             <div className="postBottom">
