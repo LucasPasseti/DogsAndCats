@@ -54,16 +54,3 @@
     list-style: none;
 }
 
-.sidebarDog{
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.sidebardogImg{
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-}

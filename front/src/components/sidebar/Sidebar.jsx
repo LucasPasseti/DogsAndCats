@@ -1,12 +1,14 @@
 import "./sidebar.css"
-import {Bookmark,Event, Chat, Group, HelpOutline, PlayCircleFilledOutlined, RssFeed, School, WorkOutline} from "@material-ui/icons"
+import { Bookmark, Event, Chat, Group, HelpOutline, PlayCircleFilledOutlined, RssFeed, School, WorkOutline } from "@material-ui/icons"
+import {Users} from"../../dummyData.js"
+import CloseFriend from "../closeFriend/CloseFriend"
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <ul className="sidebarList">
-        <li className="sidebarListItem">
+          <li className="sidebarListItem">
             <RssFeed className="sidebarIcon" />
             <span className="sidebarListItemText">Feed</span>
           </li>
@@ -46,74 +48,9 @@ export default function Sidebar() {
         <button className="sidebarButton">Mostre Mais</button>
         <hr className="sidebarHr" />
         <ul className="sidebarDogList">
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
-          <li className="sidebarDog">
-            <img className="sidebardogImg" src="/assets/person/2.jpg" alt="" />
-            <span className="sidebarDogName">Dog Nome</span>
-          </li>
+          {Users.map(u=>(
+            <CloseFriend key={u.id} user={u}/>
+          ))}
         </ul>
       </div>
     </div>
