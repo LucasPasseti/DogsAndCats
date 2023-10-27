@@ -3,6 +3,7 @@ import { Users } from "../../dummyData.js"
 import Online from "../online/Online"
 
 export default function Rightbar({ profile }) {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const HomeRightbar = () => {
     return (
@@ -37,34 +38,34 @@ export default function Rightbar({ profile }) {
             <span className="rightbarInfoValue">São Paulo</span>
           </div>
           <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">Relacionamento:</span>
-            <span className="rightbarInfoValue">Solteiro</span>
+            <span className="rightbarInfoKey">Raça:</span>
+            <span className="rightbarInfoValue">Vira Lata</span>
           </div>
         </div>
         <h4 className="rightbarTitle">Amigos</h4>
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
-            <img src="assets/person/1.jpeg" alt="" className="rightbarFollowingImg" />
+            <img src={`${PF}person/1.jpeg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">Belinha Beli</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/2.jpg" alt="" className="rightbarFollowingImg" />
+            <img src={`${PF}person/2.jpg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">Belinha Beli</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/3.jpg" alt="" className="rightbarFollowingImg" />
+            <img src={`${PF}person/3.jpg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">Belinha Beli</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/4.jpg" alt="" className="rightbarFollowingImg" />
+            <img src={`${PF}person/4.jpg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">Belinha Beli</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/5.jpg" alt="" className="rightbarFollowingImg" />
+            <img src={`${PF}person/5.jpg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">Belinha Beli</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/6.jpg" alt="" className="rightbarFollowingImg" />
+            <img src={`${PF}person/6.jpg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">Belinha Beli</span>
           </div>
         </div>
