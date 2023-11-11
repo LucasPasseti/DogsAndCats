@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
-        require: true,
+        required: true,
         min: 5,
         max: 20,
         unique: true
@@ -41,21 +41,19 @@ const UserSchema = new mongoose.Schema({
     },
     desc: {
         type: String,
-        max: 50
+        max: 500  
     },
-    breed: {   // raça
+    breed: {
         type: String,
-        max: 50
+        max: 100  
     },
-    from: {             // localização 
+    from: {
         type: String,
     },
-    size: {  //porte
+    size: {
         type: Number,
         enum: [1, 2, 3]
     }
-},
-    { timestamps: true }
-);
+}, { timestamps: true });
 
-module.exports = mongoose.model("User", UserSchema)
+module.exports = mongoose.model("User", UserSchema);

@@ -39,7 +39,7 @@ export default function Rightbar({ user }) {
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Porte:</span>
-            <span className="rightbarInfoValue">{user.size ===1 ? "pequeno" : user.size ===2 ? "médio" : user.size ===3 ? "grande" : ""}</span>
+            <span className="rightbarInfoValue">{user.size ===1 ? "Pequeno" : user.size ===2 ? "Médio" : user.size ===3 ? "Grande" : ""}</span>
           </div>
         </div>
         <h4 className="rightbarTitle">Amigos</h4>
