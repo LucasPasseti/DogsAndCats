@@ -46,7 +46,7 @@ router.delete("/:id", async (req, res) => {
     }
 });
 
-//liked, curtir post
+//liked, deslike post
 router.put("/:id/like", async (req, res) => {
     try{
         const post = await Post.findById(req.params.id);
@@ -55,7 +55,7 @@ router.put("/:id/like", async (req, res) => {
             res.status(200).json("Post curtido com sucesso");
         }else{
             await post.updateOne({$pull:{likes:req.body.userId}});
-            res.status(200).json("O post foi curtido");
+            res.status(200).json("O post foi descurtido");
         }
 
     }catch(err){
