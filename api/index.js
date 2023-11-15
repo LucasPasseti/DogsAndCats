@@ -4,16 +4,18 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const userRoute = require("./routes/users.js"); 
-const authRoute = require("./routes/auth.js"); 
-const postRoute = require("./routes/posts.js"); 
+const userRoute = require("./routes/users.js");
+const authRoute = require("./routes/auth.js");
+const postRoute = require("./routes/posts.js");
+const multer = require("multer");
+const path = require("path");
 
 dotenv.config();
 
 // Conexao com o mongo
 const connect = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URL); 
+        await mongoose.connect(process.env.MONGO_URL);
         console.log("Conectei no MongoDB");
     } catch (error) {
         console.error("Erro ao conectar no MongoDB:", error);
@@ -29,10 +31,33 @@ mongoose.connection.on("connected", () => {
     console.log("MongoDB conectado");
 });
 
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
 // Middleware
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "public/images");
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const fileExtension = file.originalname.split('.').pop(); // Obtém a extensão do arquivo
+        cb(null, `${file.fieldname}-${uniqueSuffix}.${fileExtension}`);
+    },
+});
+
+const upload = multer({ storage: storage });
+app.post("/api/upload", upload.single("file"), (req, res) => {
+    try {
+        return res.status(200).json("File uploaded successfully");
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json("Error uploading file");
+    }
+});
 
 app.get("/", (req, res) => {
     res.send("Bem-vindo à página principal");
