@@ -40,25 +40,22 @@ app.use(morgan("common"));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "public/images");
+      cb(null, "public/images");
     },
     filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        const fileExtension = file.originalname.split('.').pop(); // Obtém a extensão do arquivo
-        cb(null, `${file.fieldname}-${uniqueSuffix}.${fileExtension}`);
+      cb(null, req.body.name);
     },
-});
-
-const upload = multer({ storage: storage });
-app.post("/api/upload", upload.single("file"), (req, res) => {
+  });
+  
+  const upload = multer({ storage: storage });
+  app.post("/api/upload", upload.single("file"), (req, res) => {
     try {
-        return res.status(200).json("File uploaded successfully");
+      return res.status(200).json("File uploded successfully");
     } catch (error) {
-        console.error(error);
-        return res.status(500).json("Error uploading file");
+      console.error(error);
     }
-});
-
+  });
+  
 app.get("/", (req, res) => {
     res.send("Bem-vindo à página principal");
 });

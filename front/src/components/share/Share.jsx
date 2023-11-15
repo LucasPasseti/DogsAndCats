@@ -20,8 +20,8 @@ export default function Share() {
     if(file){
       const data = new FormData();
       const fileName = Date.now() + file.name
-      data.append("file",file);
-      data.append("name", fileName);
+      data.append("name", fileName)
+      data.append("file", file);
       newPost.img = fileName;
       try{
         await axios.post("/upload", data);
@@ -32,6 +32,7 @@ export default function Share() {
 
     try{
       await axios.post("/posts", newPost)
+      window.location.reload();
     } catch(err) {
 
     }
@@ -41,7 +42,7 @@ export default function Share() {
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-            <img className="shareProfileImg" src={user.profilePicture ? PF +user.profilePicture : PF +"person/noAvatar.jpg"} alt="" />
+            <img className="shareProfileImg" src={user.profilePicture ? `${PF}${user.profilePicture}` : `${PF}person/noAvatar.jpg`} alt="" />
             <input placeholder="Escreva o que seu animalzinho está pensando" className="shareInput" ref={desc} />
         </div>
         <hr className="shareHr" />
