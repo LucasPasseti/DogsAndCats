@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/users.js");
 const authRoute = require("./routes/auth.js");
 const postRoute = require("./routes/posts.js");
@@ -37,6 +38,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(cookieParser());
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
