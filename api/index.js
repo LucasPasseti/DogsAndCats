@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const conversationRoute = require("./routes/conversations");
+const messageRoute = require("./routes/messages");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/users.js");
 const authRoute = require("./routes/auth.js");
@@ -69,6 +71,9 @@ app.get("/users", (req, res) => {
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
+
 
 app.listen(8800, () => {
     connect();

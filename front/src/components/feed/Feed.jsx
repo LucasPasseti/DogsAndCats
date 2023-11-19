@@ -1,4 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+// Feed.js
+import React, { useContext, useEffect, useState } from "react";
 import Post from "../post/Post";
 import Share from "../share/Share";
 import "./feed.css";
@@ -13,11 +14,13 @@ export default function Feed({ username }) {
     const fetchPosts = async () => {
       try {
         const res = username
-        ? await axios.get("/posts/profile/" + username)
-        : await axios.get("posts/timeline/" + user._id);
-        setPosts(res.data.sort((p1,p2) => {
-          return new Date(p2.createdAt) - new Date(p1.createdAt);
-        }));
+          ? await axios.get("/posts/profile/" + username)
+          : await axios.get("posts/timeline/" + user._id);
+        setPosts(
+          res.data.sort((p1, p2) => {
+            return new Date(p2.createdAt) - new Date(p1.createdAt);
+          })
+        );
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -26,12 +29,17 @@ export default function Feed({ username }) {
     fetchPosts();
   }, [username, user._id]);
 
+  const handleDeletePost = (postId) => {
+    // Filtra os posts, removendo aquele com o postId correspondente
+    setPosts((prevPosts) => prevPosts.filter((post) => post._id !== postId));
+  };
+
   return (
     <div className="feed">
       <div className="feedWrapper">
         {(!username || username === user.username) && <Share />}
         {posts.map((p) => (
-          <Post key={p._id} post={p} />
+          <Post key={p._id} post={p} onDelete={handleDeletePost} />
         ))}
       </div>
     </div>
