@@ -42,6 +42,7 @@ app.use(helmet());
 app.use(morgan("common"));
 app.use(cookieParser());
 
+//Upload de Fotos no Share
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, "public/images");
@@ -54,7 +55,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
   app.post("/api/upload", upload.single("file"), (req, res) => {
     try {
-      return res.status(200).json("File uploded successfully");
+      return res.status(200).json("Arquivo enviado com sucesso");
     } catch (error) {
       console.error(error);
     }

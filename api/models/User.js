@@ -51,8 +51,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
     },
     size: {
-        type: Number,
-        enum: [1, 2, 3]
+        type: String,
+        max: 100
     }
 }, { timestamps: true });
 

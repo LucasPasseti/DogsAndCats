@@ -14,9 +14,10 @@ export default function Message({ message, own }) {
           className="messageImg"
           src={
             user?.profilePicture
-              ? PF + user.profilePicture
-              : PF + "person/noAvatar.jpg"
+            ? PF + user.profilePicture
+            : PF + "person/noAvatar.jpg"
           }
+    
           alt=""
         />
         <p className="messageText">{message.text}</p>

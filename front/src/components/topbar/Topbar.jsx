@@ -24,8 +24,12 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <span className="topbarLink">Página inicial</span>
+        </Link>
+        <Link to={`/profile/${user.username}`} style={{ textDecoration: "none", color: "inherit" }}> 
           <span className="topbarLink public">Publicações</span>
+        </Link>
         </div>
         <div className="topbarIcon">
           <div className="topbarIconItem">

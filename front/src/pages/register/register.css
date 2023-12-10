@@ -42,6 +42,10 @@
     justify-content: space-between;
 }
 
+.registerBox{
+    height: 500px;
+}
+
 .loginInput {
     height: 50px;
     border-radius: 10px;

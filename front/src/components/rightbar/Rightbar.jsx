@@ -53,10 +53,10 @@ export default function Rightbar({ user }) {
         <div className="birthdayContainer">
           <img className="birthdayImg" src="assets/others/gift.png" alt="" />
           { }
-          <span className="birthdayText"><b>Juquinha</b> mais <b>3 outros amigos</b> fazem aniversário hoje</span>
+          <span className="birthdayText"><b>Juquinha</b> mais <b>3 outros animaizinhos</b> fazem aniversário hoje</span>
         </div>
         <img className="rightbarAd" src="assets/others/ad.jpg" alt="" />
-        <h4 className="rightbarTitle">Dogs Online</h4>
+        <h4 className="rightbarTitle">Amigos Online</h4>
         <ul className="rightbarFriendList">
           {Users.map(u => (
             <Online key={u.id} user={u} />
@@ -87,13 +87,13 @@ export default function Rightbar({ user }) {
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Porte:</span>
-            <span className="rightbarInfoValue">{user.size === 1 ? "Pequeno" : user.size === 2 ? "Médio" : user.size === 3 ? "Grande" : ""}</span>
+            <span className="rightbarInfoValue">{user.size}</span>
           </div>
         </div>
         <h4 className="rightbarTitle">Amigos</h4>
         <div className="rightbarFollowings">
           {friends.map(friend => (
-            <Link to={"/profile/" + friend.username} style={{ textDecoration: "none" }}>
+            <Link to={"/profile/" + friend.username} style={{ textDecoration: "none", color: "inherit" }}>
               <div className="rightbarFollowing">
                 <img src={friend.profilePicture ? PF + friend.profilePicture : PF + "person/noAvatar.jpg"} alt="" className="rightbarFollowingImg" />
                 <span className="rightbarFollowingName">{friend.username}</span>

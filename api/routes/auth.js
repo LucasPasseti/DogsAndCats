@@ -13,6 +13,9 @@ router.post("/register", async (req, res) => {
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
+      breed: req.body.breed,
+      from: req.body.from,
+      size: req.body.size,
       password: hashedPassword, // passando o password criptografado
     });
 

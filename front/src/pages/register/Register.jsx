@@ -1,14 +1,18 @@
+// Register.jsx
 import { useRef } from "react";
 import axios from "axios";
 import "./register.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
     const username = useRef();
     const email = useRef();
     const password = useRef();
     const passwordAgain = useRef();
-    const navigate = useNavigate(); // Change from history to navigate
+    const from = useRef();
+    const breed = useRef();
+    const size = useRef();
+    const navigate = useNavigate();
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -19,10 +23,13 @@ export default function Register() {
                 username: username.current.value,
                 email: email.current.value,
                 password: password.current.value,
+                from: from.current.value,
+                breed: breed.current.value,
+                size: size.current.value,
             };
             try {
                 await axios.post("/auth/register", user);
-                navigate("/login"); // Change from history.push to navigate
+                navigate("/login");
             } catch (err) {
                 console.log(err);
             }
@@ -39,16 +46,21 @@ export default function Register() {
                     </span>
                 </div>
                 <div className="loginRight">
-                    <form className="loginBox" onSubmit={handleClick}>
-                        <input placeholder="Username" required ref={username} className="loginInput" />
-                        <input placeholder="Email" type="email" required ref={email} className="loginInput" />
-                        <input placeholder="Password" type="password" required ref={password} className="loginInput" minLength={6} />
-                        <input placeholder="Password Again" type="password" required ref={passwordAgain} className="loginInput" />
+                    <form className="loginBox registerBox" onSubmit={handleClick}>
+                        <input placeholder="Usuário" required ref={username} className="loginInput" />
+                        <input placeholder="E-mail" type="email" required ref={email} className="loginInput" />
+                        <input placeholder="Senha" type="password" required ref={password} className="loginInput" minLength={6} />
+                        <input placeholder="Senha Novamente" type="password" required ref={passwordAgain} className="loginInput" />
+                        <input placeholder="De onde você é" required ref={from} className="loginInput" />
+                        <input placeholder="Animal/Raça" required ref={breed} className="loginInput" />
+                        <input placeholder="Porte" required ref={size} className="loginInput" />
                         <button className="loginButton" type="submit">
                             Inscrever-se
                         </button>
                         <button className="loginRegisterButton">
-                            Entre com sua Conta
+                        <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+                            Clique aqui para entrar
+                        </Link>
                         </button>
                     </form>
                 </div>
